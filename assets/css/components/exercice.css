@@ -1,0 +1,69 @@
+.exercice {
+    display: flex;
+    gap: var(--space-l);
+    background-color: color-mix(in oklab, var(--coul-accent-pale) 20%, white 80%);
+    padding: var(--space-m) var(--space-l);
+    border-radius: 15px;
+    align-items: baseline;
+    justify-content: space-between;
+
+    & > * {
+        font-family: var(--font-accent);
+        font-size: var(--font-m);
+        color: var(--coul-accent-fonce);
+    }
+    & .btn {
+        font-weight: 300;
+        background-color: var(--coul-accent-fonce);
+        color: var(--coul-blanc);
+        padding: var(--space-s) var(--space-m);
+        border-radius: 5px;
+        border: var(--coul-accent-moyen);
+        cursor: pointer;
+    }
+
+    & .impact {
+        background-color: red;
+    }
+}
+
+[data-liste-exercices] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+[data-exercice-infos] h3 {
+    color: var(--coul-principale-moyen-bleu);
+    font-weight: 700;
+    font-size: var(--font-xl);
+    text-align: center;
+    align-self: center;
+}
+
+[data-exercice-infos] p {
+    color: var(--coul-principale-moyen-bleu);
+    font-size: var(--font-l);
+}
+
+[data-exercice-infos] .space {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    & a {
+        padding-top: 20px;
+    }
+
+}
+
+[data-exercice-infos] .description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    & a {
+        padding-top: 20px;
+    }
+
+}

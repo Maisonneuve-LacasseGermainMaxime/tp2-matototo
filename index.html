@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/assets/css/styles.css" />
+        <script type="module" src="/assets/js/pages/index.js"></script>
+        <title>Training App</title>
+    </head>
+
+    <body data-equipe>
+        <!-- Template pour l'utilisation des modales, ne pas supprimer-->
+        <template id="toast-modale">
+            <div class="toast-modale">
+                <div class="toast-modale-content">
+                    <p class="toast-message">{{message}}</p>
+                </div>
+            </div>
+        </template>
+
+        <header>
+            <h1>Suivi d'exercices</h1>
+            <nav>
+                <a href="/liste" data-lien>Liste des exercices</a>
+                <a href="/ajouter" data-lien>Ajouter un nouvel exercice</a>
+            </nav>
+        </header>
+        <main data-app>
+            <section data-panneau="liste">
+                <h2>Liste des exercices</h2>
+                <div data-liste-exercices class="liste-exercice"></div>
+                <template id="exercice">
+                    <div class="exercice" id="{{id}}">
+                        <h2 data-date>{{ date }}</h2>
+                        <p data-type>{{ type }}</p>
+                        <div data-action="detail" class="btn">Détail</div>
+                    </div>
+                </template>
+            </section>
+
+            <section data-panneau="detail">
+                <h2>Détail d'un exercice</h2>
+                <div data-liste-exercices data-exercice-infos class="exercice" id="{{id}}">
+                    <h3 data-type>{{ type }}</h3>
+                    <div class="space">
+                        <p>Durée :</p><p><span data-duree>{{ duree }}</span> minutos</p>
+                    </div>
+                    <div class="space">
+                        <p>Date : </p><p><span data-date>{{ date }}</span></p>
+                    </div>
+                    <div class="description">
+                        <p>Description :</p><p><span data-description>{{ description }}</span></p>
+                    </div>
+                    <div class="space">
+                        <p>Difficulté :</p><p><span data-difficulte>{{ difficulte }}</span> / 100 000</p>
+                    </div>
+                    <div class="space">
+                        <a href="/afficher" style="margin-right: 10px">Retour à la liste</a>
+                        <button data-action="supprimer" class="btn danger">Supprimer</button>
+                    </div>
+                </div>  
+            </section>
+
+            <section data-panneau="formulaire">
+                <h2>Ajouter un exercice</h2>
+                <form data-action="ajouter">
+                    <div class="input-group">
+                        <label for="type">Type</label>
+                        <input type="text" name="type" id="type" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="date">Date</label>
+                        <input type="datetime" name="date" id="date" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="duree">Durée</label>
+                        <input type="number" min="0" name="duree" id="duree" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="difficulte">Difficulté</label>
+                        <textarea name="difficulte" id="difficulte" required></textarea>
+                    </div>
+
+                    <button type="submit">Ajouter</button>
+                </form>
+            </section>
+        </main>
+        <footer>Tous droits réservés &copy;2024</footer>
+        <template id="toast-modale">
+            <div class="toast-modale">
+                <div class="toast-modale-content">
+                    <p class="toast-message">{{message}}</p>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>
